@@ -1,0 +1,18 @@
+[
+  {
+    "name": "New Delhi",
+    "properties": ["delhi-property-1", "delhi-property-2", "delhi-property-3"]
+  },
+  {
+    "name": "Banglore",
+    "properties": [
+      "banglore-property-1",
+      "banglore-property-2",
+      "banglore-property-3"
+    ]
+  },
+  {
+    "name": "Pune",
+    "properties": ["pune-property-1", "pune-property-2", "pune-property-3"]
+  }
+]

@@ -72,7 +72,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+// use less css preprocessor
 .inputs {
   display: flex;
   justify-content: space-between;
@@ -87,27 +88,27 @@ export default {
 .button {
   text-align: right;
   margin-top: 20px;
-}
-button {
-  padding: 12px 50px;
-  width: 100%;
-  background-color: #007bff;
-  color: #fff;
-  font-size: 16px;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
-}
-.btn:hover {
-  background-color: #0056b3;
+  button {
+    padding: 12px 50px;
+    width: 100%;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+  }
+  .btn:hover {
+    background-color: #0056b3;
+  }
 }
 .active {
   cursor: not-allowed;
 }
-.selected-property{
+.selected-property {
   margin-top: 20px;
-}
-.selected-property span{
-  color: #007bff;
+  span {
+    color: #007bff;
+  }
 }
 </style>

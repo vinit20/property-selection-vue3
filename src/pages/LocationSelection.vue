@@ -52,17 +52,18 @@ export default {
 };
 </script>
 
-<style scoped>
-h2 {
-  text-align: center;
-  margin-bottom: 50px;
-}
+<style lang="less" scoped>
+// use less css preprocessor
 .form-container {
   width: 30%;
   background-color: #fff;
   padding: 30px 60px 60px 60px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  h2 {
+    text-align: center;
+    margin-bottom: 50px;
+  }
 }
 @media (max-width: 767px) {
   .form-container {

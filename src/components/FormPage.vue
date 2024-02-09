@@ -26,16 +26,22 @@
       </div>
     </div>
     <button v-if="currentRouteName !== 'Cart'" @click.prevent="submitForm" class="btn">Submit</button>
-    <button :class="{ active: userData.name === '' || userData.email === '' || userData.phone === '' }" :disabled="userData.name === '' || userData.email === '' || userData.phone === ''" v-if="currentRouteName === 'Cart'" @click.prevent="submitFormWithUserData" class="btn">Submit</button>
+    <button
+      :class="{ active: userData.name === '' || userData.email === '' || userData.phone === '' }"
+      :disabled="userData.name === '' || userData.email === '' || userData.phone === ''"
+      v-if="currentRouteName === 'Cart'"
+      @click.prevent="submitFormWithUserData"
+      class="btn"
+    >Submit</button>
   </form>
 </template>
 
 <script>
-import { ref, computed, onMounted, onUnmounted, getCurrentInstance } from 'vue';
-import { useRouter } from 'vue-router';
+import { ref, computed, onMounted, onUnmounted, getCurrentInstance } from "vue";
+import { useRouter } from "vue-router";
 
 export default {
-  name: 'FormPage',
+  name: "FormPage",
   props: {
     stateData: Array
   },
@@ -54,14 +60,14 @@ export default {
         return selectedLocation.value === state.name;
       });
       modalOpen.value = true;
-      instance.emit('selectedLocationData', selectedLocationData);
-      instance.emit('modalOpen', modalOpen.value);
+      instance.emit("selectedLocationData", selectedLocationData);
+      instance.emit("modalOpen", modalOpen.value);
     }
 
     function submitFormWithUserData() {
       userData.value = {};
       formSubmit.value = true;
-      instance.emit('formSubmission', formSubmit.value);
+      instance.emit("formSubmission", formSubmit.value);
     }
 
     onMounted(() => {
@@ -83,7 +89,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang='less' scoped>
+// use less css preprocessor
 input {
   width: 100%;
   padding: 12px;
@@ -96,15 +103,14 @@ input {
 
 .form-group {
   margin-bottom: 20px;
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
 }
 .form-group-mt {
   margin-top: 16px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
 }
 
 .select-dropdown {
@@ -114,12 +120,11 @@ input {
   border-radius: 4px;
   font-size: 16px;
   background-color: #fff; /* Set background color */
-}
-
-.select-dropdown:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  .select-dropdown:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
 }
 
 .btn {
@@ -132,13 +137,11 @@ input {
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
+  margin-top: 20px;
 }
 
 .btn:hover {
   background-color: #0056b3;
-}
-.btn {
-  margin-top: 20px;
 }
 .active {
   cursor: not-allowed;

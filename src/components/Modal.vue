@@ -43,7 +43,8 @@ export default {
   }
 };
 </script>
-  <style scoped>
+ <style lang="less" scoped>
+// use less css preprocessor
 .modal {
   position: fixed;
   z-index: 1000;
@@ -53,18 +54,30 @@ export default {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-}
+  .modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 700px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    animation-name: modalopen;
+    animation-duration: 0.4s;
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
 
-.modal-content {
-  background-color: #fff;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 700px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  animation-name: modalopen;
-  animation-duration: 0.4s;
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
 }
 
 @keyframes modalopen {
@@ -74,19 +87,5 @@ export default {
   to {
     opacity: 1;
   }
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
 }
 </style>

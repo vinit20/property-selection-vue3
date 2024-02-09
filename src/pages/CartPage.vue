@@ -48,7 +48,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+// use less css preprocessor
 .cart-page-main {
   width: 30%;
   background-color: #fff;
@@ -56,28 +57,32 @@ export default {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   position: relative;
-}
-h2 {
-  text-align: center;
-  margin-bottom: 60px;
-}
-.selected-data {
-  display: flex;
-  flex-direction: column;
-}
-.selected-data span {
-  margin-bottom: 10px;
-}
-.submit-form {
-  background: green;
-  color: #fff;
-  text-align: center;
-  padding: 40px 30px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation: fadeInOut 2s ease infinite alternate;
+  .blurred {
+    filter: blur(1px); /* Adjust the blur amount as needed */
+    pointer-events: none; /* Prevent clicking on blurred elements */
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .selected-data {
+    display: flex;
+    flex-direction: column;
+    span {
+      margin-bottom: 10px;
+    }
+  }
+  .submit-form {
+    background: green;
+    color: #fff;
+    text-align: center;
+    padding: 40px 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fadeInOut 2s ease infinite alternate;
+  }
 }
 
 @keyframes fadeInOut {
@@ -87,10 +92,6 @@ h2 {
   100% {
     opacity: 1;
   }
-}
-.blurred {
-  filter: blur(1px); /* Adjust the blur amount as needed */
-  pointer-events: none; /* Prevent clicking on blurred elements */
 }
 
 @media (max-width: 767px) {

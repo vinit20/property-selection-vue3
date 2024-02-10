@@ -18,10 +18,12 @@ export default {
     selectedLocation: Array
   },
   setup(props) {
+    // get some vue instance here which include emit, props, slots, attrs
     const instance = getCurrentInstance();
     const isOpenModal = ref(props.isOpen);
     const selectLocation = ref(props.selectedLocation);
 
+    // use this for close modal
     function closeModal() {
       isOpenModal.value = false;
       instance.emit("close");

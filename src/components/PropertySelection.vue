@@ -40,6 +40,7 @@ export default {
     const selectProperty = ref([]);
     const router = useRouter();
 
+    // use this function for property selection
     const propertySelect = (property) => {
       if (selectProperty.value.includes(property)) {
         selectProperty.value = selectProperty.value.filter(item => item !== property);
@@ -48,6 +49,7 @@ export default {
       }
     };
 
+    // this function is used to change the route from home to cart
     const addToCart = () => {
       router.push({
         path: "/cart",

@@ -2,14 +2,16 @@
   <div class="form-container">
     <h2>OMKATECH ASSIGNMENT</h2>
     <Form :stateData="stateData" @selectedLocationData="selectLocationData" @modalOpen="modalOpen" />
+    <!-- modal component -->
     <Modal :isOpen="isModalOpen" @close="closeModal" :selectedLocation="selectedLocation">
       <PropertySelection :selectedLocation="selectedLocation" />
     </Modal>
+    <!-- modal component -->
   </div>
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref } from "vue";
 import Modal from "../components/Modal.vue";
 import PropertySelection from "../components/PropertySelection.vue";
 import Form from "../components/FormPage.vue";
@@ -27,15 +29,18 @@ export default {
     const isModalOpen = ref(false);
     const stateData = STATE_DATA;
 
-    const selectLocationData = (value) => {
+    // selection location from dropdown
+    const selectLocationData = value => {
       selectedLocation.value = value;
     };
 
-    const modalOpen = (value) => {
+    // open modal
+    const modalOpen = value => {
       console.log(value, "value");
       isModalOpen.value = value;
     };
 
+    // close modal
     const closeModal = () => {
       isModalOpen.value = false;
     };

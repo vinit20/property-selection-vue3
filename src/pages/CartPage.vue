@@ -32,6 +32,7 @@ export default {
     const formSubmitSuccessfully = ref(false);
     const router = useRouter();
 
+    // Submit final form
     const formSubmit = (value) => {
       formSubmitSuccessfully.value = value;
       setTimeout(() => {

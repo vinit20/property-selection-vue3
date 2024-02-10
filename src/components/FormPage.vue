@@ -1,5 +1,7 @@
 <template>
+  <!-- form content start -->
   <form>
+    <!-- use conditional rendering to show the specific div according to requirements -->
     <div class="form-group" v-if="currentRouteName !== 'Cart'">
       <label for="location">Select Location:</label>
       <select v-model="selectedLocation" id="location" name="location" class="select-dropdown">
@@ -34,10 +36,11 @@
       class="btn"
     >Submit</button>
   </form>
+  <!-- form content end -->
 </template>
 
 <script>
-import { ref, computed, onMounted, onUnmounted, getCurrentInstance } from "vue";
+import { ref, computed, getCurrentInstance } from "vue";
 import { useRouter } from "vue-router";
 
 export default {
@@ -45,6 +48,7 @@ export default {
   props: {
     stateData: Array
   },
+  // composition API
   setup() {
     const instance = getCurrentInstance();
     const selectedLocation = ref("New Delhi");
@@ -55,6 +59,7 @@ export default {
     const router = useRouter();
     const currentRouteName = computed(() => router.currentRoute.value.name);
 
+    // This function is used for filter the selected location data
     function submitForm() {
       const selectedLocationData = instance.props.stateData.filter(state => {
         return selectedLocation.value === state.name;
@@ -64,19 +69,12 @@ export default {
       instance.emit("modalOpen", modalOpen.value);
     }
 
+    // This function is used for save the user details with locations and properties
     function submitFormWithUserData() {
       userData.value = {};
       formSubmit.value = true;
       instance.emit("formSubmission", formSubmit.value);
     }
-
-    onMounted(() => {
-      console.log("Component mounted");
-    });
-
-    onUnmounted(() => {
-      console.log("Component unmounted");
-    });
 
     return {
       selectedLocation,
